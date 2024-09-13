@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Student</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            max-width: 500px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 15px;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style> 
+</head>
+
+<body>
+    <h2>Add New Student</h2>
+    <form th:action="@{/students/save}" th:object="${student}" method="post">
+        <label for="name">Name</label>
+        <input type="text" id="name" th:field="*{name}" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" th:field="*{email}" required>
+        
+        <label for="password">Password</label>
+        <input type="text" id="password" th:field="*{password}" required>
+
+        <label for="project">Project</label>
+        <input type="text" id="project" th:field="*{project}" required>
+        
+        
+
+        <button type="submit" class="btn">Add Student</button>
+    </form>
+
+    <a href="/students" class="back-link">Back to Student List</a>
+</body>
+
+</html>
